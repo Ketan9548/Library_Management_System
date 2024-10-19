@@ -3,7 +3,7 @@ import { AiOutlineEdit } from "react-icons/ai";
 import { MdOutlineDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-const BookTables = ({ datas }) => {
+const BookTables = ({ datas, totalBook }) => {
   return (
     <div className="overflow-auto">
       <table className="table-auto w-full text-left border border-slate-500">
@@ -42,6 +42,10 @@ const BookTables = ({ datas }) => {
           ))}
         </tbody>
       </table>
+      <div>
+        <span className="font-bold">Total Books: </span>
+        {totalBook}
+      </div>
     </div>
   );
 };

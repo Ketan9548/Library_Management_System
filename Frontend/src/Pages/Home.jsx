@@ -1,16 +1,18 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import React from "react";
-import Spinner from "../../Components/Spinner";
+import Spinner from "../Components/Spinner";
 import { MdOutlineAddBox } from "react-icons/md";
 import { useEffect, useState } from "react";
-import BookCard from "../../Components/Home/BookCard";
-import BookTables from "../../Components/Home/BookTables";
+import BookCard from "../Components/Home/BookCard";
+import BookTables from "../Components/Home/BookTables";
+import { data } from "autoprefixer";
 
 const Home = () => {
   const [datas, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState("table");
+  
 
   useEffect(() => {
     setLoading(true);
@@ -26,6 +28,7 @@ const Home = () => {
         setLoading(false);
       });
   }, []);
+  let NumberofBook = datas.length; 
 
   return (
     <div className="p-4 w-full h-screen overflow-auto">
@@ -49,8 +52,10 @@ const Home = () => {
           <MdOutlineAddBox className="text-sky-600 text-3xl" />
         </Link>
       </div>
-      {loading ? <Spinner /> : showType === 'table' ? (
-        <BookTables datas={datas} />
+      {loading ? (
+        <Spinner />
+      ) : showType === "table" ? (
+        <BookTables totalBook = {NumberofBook} datas={datas} />
       ) : (
         <div className="border-separate border-spacing-2 border border-slate-500">
           <BookCard datas={datas} />
