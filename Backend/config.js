@@ -1,0 +1,1 @@
+export const mongosDBURL = 'mongodb+srv://KBookManagement:Ketan321@cluster0.vywvu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
