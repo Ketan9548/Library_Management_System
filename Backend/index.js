@@ -3,20 +3,16 @@ const app = express();
 import { mongosDBURL } from "./config.js";
 import mongoose from "mongoose";
 import Bookroute from "./Routes/BooksRoutes.js";
-import cors from 'cors'
+import cors from "cors";
 
 const PORT = 9990;
 
 // meddleware for parsing request body
 app.use(express.json());
 
-
-
-
-
 //Middelware for handling Cors Polisy
 // option 1: Allow all  origin with default of cors (*)
-app.use(cors())
+app.use(cors());
 // option 2: Allow custom origins
 // app.use(cors({
 //   origin:"http://localhost:5173/",
@@ -24,7 +20,7 @@ app.use(cors())
 // }))
 
 // all book route connection
-app.use('/books',Bookroute)
+app.use("/books", Bookroute);
 
 mongoose
   .connect(mongosDBURL)
@@ -43,3 +39,6 @@ app.get("/", (req, res) => {
   return res.status(321).send("welcome to my backend");
 });
 
+app.listen(PORT, () => {
+  console.log(`App is start in port: http://localhost:${PORT}`);
+});

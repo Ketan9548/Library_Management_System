@@ -6,7 +6,6 @@ import { MdOutlineAddBox } from "react-icons/md";
 import { useEffect, useState } from "react";
 import BookCard from "../Components/Home/BookCard";
 import BookTables from "../Components/Home/BookTables";
-import { data } from "autoprefixer";
 
 const Home = () => {
   const [datas, setData] = useState([]);
